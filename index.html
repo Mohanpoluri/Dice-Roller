@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            margin: 20px;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #5cb45f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #24d42d;
+        }
+    </style>
+</head>
+<body>
+    <h2>🎲 Dice Roller 🎲</h2>
+    <img id="diceImage" src="dice-1.svg" alt="Dice">
+    <br>
+    <button onclick="randomimage()">Roll the 🎲</button>
+
+    <script>
+        const images = ["dice-1.svg", "dice-2.svg", "dice-3.svg", "dice-4.svg", "dice-5.svg", "dice-6.svg"];
+        let rotation = 0;
+
+        function randomimage() {
+            const img = document.getElementById("diceImage");
+            const randomIndex = Math.floor(Math.random() * images.length);
+            img.src = images[randomIndex];
+            rotation += 360;
+            img.style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
+</body>
+</html>
